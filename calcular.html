@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora de microgotas e macrogotas para administração de medicamentos e soluções">
+  <title>CalculeMed - Calculadora</title>
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+  <header class="header-container">
+    <div class="header">
+      <a href="index.html" class="logo"> <img src="img/Logo.png" alt="Logo CalculeMed" width="150" height="50"></a>
+      
+      <nav class="nav">
+        <button class="theme-toggle" aria-label="Alternar tema escuro" onclick="toggleDarkMode()">��</button>
+        <a href="index.html">Início</a>
+        <a href="calcular.html">Calcular</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="parallax-container">
+    <div class="parallax-bg" style="background-image: url('img/enfermagem-1600-x-1000-vii4n6ltoh62u6kj.webp');" aria-hidden="true"></div>
+    <div class="container">
+      <h1>Calculadora de Microgotas e Macrogotas</h1>
+
+      <!-- Seção de escolha inicial -->
+      <section id="choice-section" class="choice-section">
+        <h2>Escolha o tipo de cálculo</h2>
+        <button onclick="showMicrogotas()" class="choice-button">Cálculo de Microgotas</button>
+        <button onclick="showMacrogotas()" class="choice-button">Cálculo de Macrogotas</button>
+      </section>
+
+      <!-- Seção de cálculo de microgotas (inicialmente oculta) -->
+      <section id="microgotas-section" class="form-section" style="display: none;">
+        <h2>Cálculo para Microgotas por Minuto</h2>
+        <p>(Padrão: 60 microgotas por mL)</p>
+        <form onsubmit="event.preventDefault(); calcularMicrogotas();">
+          <div class="input-group">
+            <label for="volume-micro">Volume (mL):</label>
+            <input type="number" id="volume-micro" placeholder="Ex: 500" min="0" required>
+          </div>
+          <div class="input-group">
+            <label for="tempo-micro">Tempo (minutos):</label>
+            <input type="number" id="tempo-micro" placeholder="Ex: 240" min="1" required>
+          </div>
+          <button type="submit">Calcular Microgotas</button>
+        </form>
+      </section>
+
+      <!-- Seção de cálculo de macrogotas (inicialmente oculta) -->
+      <section id="macrogotas-section" class="form-section" style="display: none;">
+        <h2>Cálculo para Macrogotas por Minuto</h2>
+        <p>(Padrão: 20 macrogotas por mL)</p>
+        <form onsubmit="event.preventDefault(); calcularMacrogotas();">
+          <div class="input-group">
+            <label for="volume-macro">Volume (mL):</label>
+            <input type="number" id="volume-macro" placeholder="Ex: 500" min="0" required>
+          </div>
+          <div class="input-group">
+            <label for="tempo-macro">Tempo (minutos):</label>
+            <input type="number" id="tempo-macro" placeholder="Ex: 240" min="1" required>
+          </div>
+          <button type="submit">Calcular Macrogotas</button>
+        </form>
+      </section>
+
+      <section id="result" class="result-section">
+        <!-- Resultados e explicação aparecerão aqui -->
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 CalculeMed. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
